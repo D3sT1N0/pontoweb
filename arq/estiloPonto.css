@@ -1,0 +1,35 @@
+
+
+
+body{
+
+    background-color: rgb(73, 83, 124);
+}
+
+main{
+
+    background-color: white;
+    padding: 20px;
+   
+    border-radius: 10px;
+
+    width: 160px;
+    height: 280px; 
+    margin: auto;
+    margin-top: 40px;
+}
+
+button{
+
+    width: 120px;
+    height: 80px;
+    margin-top: 60px;
+    margin-left: 20px;
+}
+
+input#butao{
+
+    height: 40px;
+    width: 80px;
+    
+}
