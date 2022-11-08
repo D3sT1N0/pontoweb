@@ -28,8 +28,8 @@
 
         //Recipients
         $mail->setFrom('brunoleal3@outlook.com', 'Registro de Ponto');
-        $mail->addAddress('brunoleal3@yahoo.com.br');     //Add a recipient
-        $mail->addAddress('brunoleal3@gmail.com');   
+        $mail->addAddress('orlaneidealves@yahoo.com.br');     //Add a recipient
+        $mail->addAddress('brunoleal3@yahoo.com.br');   
 
         
         //Content
