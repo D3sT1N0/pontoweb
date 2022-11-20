@@ -29,9 +29,18 @@ class Processamento {
         
         require './arq/Conexao.php';
 
-        $queriBatida01 = "INSERT INTO registrospontos (diaBD, dataBD, batida01, ipBD) VALUES ('$this->pegaDia','$this->pegaData','$this->pegaHora','$this->pegaID')";
+        $queriBatida01 = "INSERT INTO registrospontos (diaBD, dataBD, batida01, ipBD) VALUES (?, ?, ?, ?)";
+
+
+        //$queriBatida01 = "INSERT INTO registrospontos (diaBD, dataBD, batida01, ipBD) VALUES ('$this->pegaDia','$this->pegaData','$this->pegaHora','$this->pegaID')";
         
         $executaBatida01 = mysqli_prepare($conectaBD, $queriBatida01);
+        mysqli_stmt_bind_param($executaBatida01,'ssss', $aa, $bb, $cc, $dd);
+        $aa = $this->pegaDia;
+        $bb = $this->pegaData;
+        $cc = $this->pegaHora;
+        $dd = $this->pegaID;
+        
         mysqli_execute($executaBatida01);
         
     }

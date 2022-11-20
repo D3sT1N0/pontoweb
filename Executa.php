@@ -35,7 +35,7 @@
 
                 $executaComando->insereBatida01();
                 echo "Primeira batida registrada com sucesso!!<br>";
-                $executaComando->mandaEmail();
+                //$executaComando->mandaEmail();
 
 
             } elseif ($executaComando->comparaHora() >= 15) {
@@ -45,7 +45,7 @@
                     case 3:
                         $executaComando->insereBatida02();
                         echo "<br>Segunda batida registrada com sucesso!!<br>";
-                        $executaComando->mandaEmail();
+                       // $executaComando->mandaEmail();
                         
                         break;
                     case 2:
@@ -53,7 +53,7 @@
 
                         $executaComando->insereBatida03();
                         echo "<br>Terceira batida registrada com sucesso!!<br>";
-                        $executaComando->mandaEmail();
+                        //$executaComando->mandaEmail();
                         
                         } else {
 
@@ -64,7 +64,7 @@
                     case 1:
                         $executaComando->insereBatida04();
                         echo "<br>Quarta batida registrada com sucesso!!<br>";
-                        $executaComando->mandaEmail();
+                        //$executaComando->mandaEmail();
                         break;
                     default :
                         echo "<br>Batida não reconhecida. Tente Novamente";
