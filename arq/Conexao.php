@@ -7,10 +7,9 @@
 
     
     $conectaBD = mysqli_connect($localhost,$user,$password,$database);
-    /*
-     * mysqli_set_charset($conectaBD, 'UTF-8');
+    mysqli_set_charset($conectaBD, 'UTF8');
      
-    
+/*    
     if (!$conectaBD) {
         die("Connection failed: " . mysqli_connect_error());
     }
