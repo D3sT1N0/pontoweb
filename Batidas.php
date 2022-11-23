@@ -25,15 +25,19 @@
         <?php
 
         require './arq/Conexao.php';  
+        require './arq/Processamento.php';
         
         
-        $hoje = date("Y/m/d");
+        $hoje = date("d/m/Y");
+        $agora = date("H:i");
         
-        $queriBatida = "SELECT dataBD, batida01, batida02, batida03, batida04 FROM registrospontos where dataBD = '$hoje'";
         
-        $consultaBatida = mysqli_query($conectaBD, $queriBatida);
+        $queriBatida01 = "SELECT id,batida01, batida02, batida03, batida04 FROM registrospontos where dataBD = '$hoje' ";// where dataBD = '$hoje'";
+        //$queriBatida = "SELECT SUM(batida01) as total FROM registrospontos";// where dataBD = '$hoje'";
+        
+        $consultaBatida01 = mysqli_query($conectaBD, $queriBatida01);
         //$mostraBatida = mysqli_fetch_assoc($consultaBatida);
-        
+      /*  
         while ($row = mysqli_fetch_assoc($consultaBatida)) {
            //extract($mostraBatida);
             
@@ -69,6 +73,14 @@
                 </table>";
         }
 
+        $i = 1;
+        while ($linha = mysqli_fetch_array($consultaBatida)) {
+            
+*/           echo $hoje."<br>"; 
+            $impo = new Processamento(0, $hoje, 0, 0);
+            
+            echo $impo->colunasVazias();
+       
         ?>
         
             <a href="index.html" ><h4>Volta</h4></a>
