@@ -33,3 +33,11 @@ input#butao{
     width: 80px;
     
 }
+
+a.MostraBat{
+
+    position: relative;
+    top: 40%;
+    text-align: center;
+
+}

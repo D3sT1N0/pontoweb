@@ -26,7 +26,7 @@
             $pegID = $_POST['nid'];
 
 
-
+            $teste = $pegDi;
 
             $executaComando = new Processamento($pegDi, $pegDa, $pegH, $pegID);
             
