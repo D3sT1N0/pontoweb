@@ -89,15 +89,17 @@ class Processamento {
         return $resultadoNumLinha;
     }
     
-        public function colunasVazias() {
+        public function colunasCheias() {
         
         require './arq/Conexao.php';
         
-        $queriVazio = "SELECT id, diaBD, dataBD,(batida01 is null) + (batida02 is null) + (batida03 is null) + (batida04 is null) AS total FROM registrospontos where dataBD = '$this->pegaData'";
-        $colunaVazia = mysqli_query($conectaBD, $queriVazio);
-        $resultadoLinhaVazia = mysqli_fetch_assoc($colunaVazia);
+        $queriCheias = "select id, (batida01 is not null) + (batida02 is not null) + (batida03 is not null) + (batida04 is not null)                 as total from registrospontos WHERE dataBD = '$this->pegaData'";
         
-        return $resultadoLinhaVazia['total'];
+        //$queriVazio = "SELECT id, diaBD, dataBD,(batida01 is null) + (batida02 is null) + (batida03 is null) + (batida04 is null) AS total FROM registrospontos where dataBD = '$this->pegaData'";
+        $colunaCheias = mysqli_query($conectaBD, $queriCheias);
+        $resultadoLinhaCheias = mysqli_fetch_assoc($colunaCheias);
+        
+        return $resultadoLinhaCheias['total'];
     }
     
     public function comparaHora() {

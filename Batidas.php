@@ -27,7 +27,7 @@
                 require './arq/Conexao.php';  
                 require './arq/Processamento.php';
                 
-                $tt =('07:30:00');
+                
                 $hoje = date("Y/m/d");
                 $consulta = date("d/m/Y");
                 $consultaTempo = new Processamento(0, $consulta, 0, 0);
@@ -66,27 +66,26 @@
                             </tr>
                         </tbody>";
                 }
-                $cc = $consultaTempo->colunasVazias() + 2;
-                $h1 = $consultaTempo->consultaTabela($cc);
+                $mostraColunasCheias = $consultaTempo->colunasCheias() + 2;
+                $h1 = $consultaTempo->consultaTabela($mostraColunasCheias);
                 $h2 = $consultaTempo->consultaTabela(3);
 
-                $rr = $consultaTempo->somaDasHoras($h1, $h2);
+                $mostraTempo = $consultaTempo->somaDasHoras($h1, $h2);
                 
-//$hh = DateTime::createFromFormat("H:i:s",$rr);
-                //$rr = new DateTime();
-                echo "Horas trabalhadas até o momento: <br>".$rr."<br>";
-                //$xx = $rr;
-                $xx = DateTime::createFromFormat("H:i:s",$rr);
-                //$xx = $rr;
+                if($mostraColunasCheias > 2){
+                    
+                    $horaSemIntervalo = DateTime::createFromFormat("H:i:s",$mostraTempo);
+
+                    $intervalo = new DateInterval('PT1H');
+                    $horaSemIntervalo->sub($intervalo);
+
+                    echo "hora alterada <br>__:".$horaSemIntervalo->format('H:i:s');
                 
-                //echo "mostre xx:".$xx->format('H:i:s');
-                
-                $uu = new DateInterval('PT1H');
-                $xx->add($uu);
-                
-                echo "hora alterada <br>__:".$xx->format('H:i:s');
-                
-                
+                } else {
+                    echo "Horas trabalhadas até o momento: <br>".$mostraTempo."<br>";
+                }
+
+
             ?>
             
             
