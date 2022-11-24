@@ -10,7 +10,7 @@
 
             h4{
 
-                margin-top: 20%;
+                padding: 0px;
 
             }
             
@@ -25,7 +25,7 @@
     </head>
     <body>
 
-        <main>
+        <main id="idBatida">
 
             <?php
 
@@ -80,19 +80,29 @@
                 $h1 = $consultaTempo->consultaTabela($mostraColunasCheias);
                 $h2 = $consultaTempo->consultaTabela(3);
 
-                $mostraTempo = $consultaTempo->somaDasHoras($h1, $h2);
+
                 
                 //echo "colunas  ".$mostraColunasCheias."<br>";
                 //echo "ident__01   ". $mostraTempo;
                 
+               // echo "Total de Horas trabalhadas ".$mostraTempo." em $consulta";
                 
-                if($mostraColunasCheias > 4 && $mostraColunasCheias < 6){
+                if ($mostraColunasCheias == 4) {
+                    $mostraTempo = $consultaTempo->somaDasHoras($h1, $h2);
+                    echo "Total de Horas trabalhadas ".$mostraTempo." em $consulta";
+                }
+                
+                elseif($mostraColunasCheias > 4 && $mostraColunasCheias < 6){
 
                     $h1 = $consultaTempo->consultaTabela(4);
                     $h2 = $consultaTempo->consultaTabela(3);
-                   $mostraTempo = $consultaTempo->somaDasHoras($h1, $h2);
-                    echo "<br>ident__02   ".$mostraTempo;
-                    
+                    $mostraTempo = $consultaTempo->somaDasHoras($h1, $h2);
+                    echo "Total de Horas trabalhadas ".$mostraTempo." em $consulta";
+                   
+                    $h1 = new DateTime($consultaTempo->consultaTabela(5));
+                    $h2 = new DateTime($consultaTempo->consultaTabela(4));
+                    $diferenca1 = $h2->diff($h1);
+                    echo "<p><br>Duração do Intervalo ".$diferenca1->format('%H:%I:%S')."</p>";
                     
                 } else {
                     
@@ -102,20 +112,16 @@
                     
                     $horaSemIntervalo = new DateTime($mostraTempo);
 
-                    $diferenca1 = $h2->diff($h1);
-                    $horaSemIntervalo->sub($diferenca1);
+                    $diferenca2 = $h2->diff($h1);
+                    $horaSemIntervalo->sub($diferenca2);
 
                     
-                    //echo "<br>diferenca___".$diferenca1->format('%H:%I:%S'); //este FORMAT é usado quando trabalhammos com DateTime
+                    //echo "<br>diferenca___".$diferenca2->format('%H:%I:%S'); //este FORMAT é usado quando trabalhammos com DateTime
                     //echo "<br>Hora sem Inter   ".$horaSemIntervalo->format('%H:%I:%S');//deste jeito nao funciona
-                    echo "<br>Total de Horas trabalhadas ".$horaSemIntervalo->format('H:i:s')." __em $consulta <br>";
- 
-                }
-                
-                
-                
-                
-                
+                    echo "<p><br>Total de Horas trabalhadas ".$horaSemIntervalo->format('H:i:s')." em $consulta <br></p>";
+                    echo "<p>Duração do Intervalo ".$diferenca2->format('%H:%I:%S')."</p>";
+                 }
+
                 /*
                 if($mostraColunasCheias < 3){
                     
@@ -149,10 +155,8 @@
                     echo "Horas trabalhadas até o momento: <br>".$mostraTempo."<br>";
                 }
 */
-
-
             ?>
-            
+            <a href="index.html"><h4>Volta</h4></a>
             
         </main>
         

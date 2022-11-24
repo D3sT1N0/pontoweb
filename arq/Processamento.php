@@ -102,6 +102,17 @@ class Processamento {
         return $resultadoLinhaCheias['total'];
     }
     
+    public function colunasVazias() {
+        
+        require './arq/Conexao.php';
+        
+        $queriVazio = "SELECT id, diaBD, dataBD,(batida01 is null) + (batida02 is null) + (batida03 is null) + (batida04 is null) AS total FROM registrospontos where dataBD = '$this->pegaData'";
+        $colunaVazia = mysqli_query($conectaBD, $queriVazio);
+        $resultadoLinhaVazia = mysqli_fetch_assoc($colunaVazia);
+        
+        return $resultadoLinhaVazia['total'];
+    }
+    
     public function comparaHora() {
         
         require './arq/Conexao.php';

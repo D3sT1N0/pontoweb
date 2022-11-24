@@ -13,8 +13,21 @@ main{
    
     border-radius: 10px;
 
-    width: 300px;
-    height: 480px; 
+    width: 180px;
+    height: 310px; 
+    margin: auto;
+    margin-top: 40px;
+}
+
+main#idBatida{
+
+    background-color: white;
+    padding: 20px;
+   
+    border-radius: 10px;
+
+    width: 180px;
+    height: 380px; 
     margin: auto;
     margin-top: 40px;
 }
@@ -40,4 +53,10 @@ a.MostraBat{
     top: 40%;
     text-align: center;
 
+}
+
+p{
+    margin-top: 0px;
+    padding-top: 0px;
+    text-align: center;
 }
