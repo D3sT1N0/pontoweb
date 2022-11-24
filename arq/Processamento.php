@@ -122,6 +122,29 @@ class Processamento {
         
         return $menos;
     }
+    
+    public function consultaTabela($param) {
+        
+        require './arq/Conexao.php';
+        
+        $queriTabela = "SELECT id, diaBD, dataBD, batida01, batida02, batida03, batida04, ipBD AS TOTAL from registrospontos  WHERE dataBD = '$this->pegaData'";
+        $infoTabela = mysqli_query($conectaBD, $queriTabela);
+        $resultadoTabela = mysqli_fetch_array($infoTabela); 
+        
+        return $resultadoTabela[$param];
+    }
+    
+    public function somaDasHoras($h1, $h2) {
+        
+        require './arq/Conexao.php';
+        
+       
+        $queriSoma = "SELECT TIMEDIFF('$h1', '$h2')AS TOTAL from registrospontos  WHERE dataBD = '$this->pegaData'";
+        $infoSoma = mysqli_query($conectaBD, $queriSoma);
+        $resultadoSoma = mysqli_fetch_array($infoSoma); 
+        
+        return $resultadoSoma['TOTAL'];
+    }
 
     public function mandaEmail() {
         

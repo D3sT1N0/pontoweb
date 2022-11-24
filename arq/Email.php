@@ -19,16 +19,16 @@
         //Server settings
         //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
         $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host       = 'smtp.office365.com';                     //Set the SMTP server to send through
+        $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'brunoleal3@outlook.com';                     //SMTP username
-        $mail->Password   = 'duzuobzkmfkowtmy';                               //SMTP password
+        $mail->Username   = 'quemEnvia@gmail.com';                     //SMTP username
+        $mail->Password   = 'senha do dispositivo';                               //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;//ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
         //Recipients
-        $mail->setFrom('brunoleal3@outlook.com', 'Registro de Ponto');
-        $mail->addAddress('brunoleal3@yahoo.com.br');     //Add a recipient'orlaneidealves@yahoo.com.br'
+        $mail->setFrom('quemEnvia@gmail.com', 'Registro de Ponto');
+        $mail->addAddress('quemRecebe@yahoo.com');     //Add a recipient'orlaneidealves@yahoo.com.br'
         //$mail->addAddress('brunoleal3@yahoo.com.br');   
 
         
