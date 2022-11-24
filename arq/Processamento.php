@@ -106,11 +106,7 @@ class Processamento {
         
         require './arq/Conexao.php';
         
-        $queriBatidaSelecionada = "select id, (batida01 is not null) + (batida02 is not null) + (batida03 is not null) + (batida04 is not null)                 as Total from registrospontos WHERE dataBD = '$this->pegaData'";
-        $qualBatida = mysqli_query($conectaBD, $queriBatidaSelecionada);
-        $resultadoBatidaSelecionada = mysqli_fetch_assoc($qualBatida);
-        
-        $quantidadeBatidas = $resultadoBatidaSelecionada['Total'];
+        $quantidadeBatidas = $this->colunasCheias();
         
         $queriComparaBatida = "SELECT id, batida01, batida02, batida03, batida04 from registrospontos  WHERE dataBD = '$this->pegaData'";
         $horaVerificada = mysqli_query($conectaBD, $queriComparaBatida);
@@ -118,7 +114,7 @@ class Processamento {
 
         $horaSelecioda = $resultadohoraVerifica[$quantidadeBatidas];
         
-        $start = strtotime($horaSelecioda);
+        $start = strtotime($horaSelecioda);//strtotime transforma Horas em numeros, em vez de ele mostrar 01:30:00 vai mostrar 90
         $end = strtotime($this->pegaHora);
         $menos = ($end - $start)/60;
         

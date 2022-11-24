@@ -5,6 +5,9 @@
         <group>
             <file>file:/C:/xampp/htdocs/pontoweb/Batidas.php</file>
             <file>file:/C:/xampp/htdocs/pontoweb/arq/Processamento.php</file>
+            <file>file:/C:/xampp/htdocs/pontoweb/arq/estiloPonto.css</file>
+            <file>file:/C:/xampp/htdocs/pontoweb/arq/Email.php</file>
+            <file>file:/C:/xampp/htdocs/pontoweb/Executa.php</file>
         </group>
     </open-files>
 </project-private>
